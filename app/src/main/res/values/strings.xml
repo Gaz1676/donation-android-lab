@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Donation</string>
+    <string name="donateTitle">Welcome Homer</string>
+    <string name="donateSubtitle">Please give generously</string>
+    <string name="donateButton">Donate</string>
+    <string name="payBuddy">PayBuddy</string>
+    <string name="direct">Direct</string>
+    <string name="amountText">Amount (in doughnuts)</string>
+    <string name="totalText">Total so far: €</string>
+    <string name="homer">Homer</string>
+    <string name="targetAchieved">Target Achieved</string>
+</resources>
