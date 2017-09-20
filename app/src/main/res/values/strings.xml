@@ -9,4 +9,9 @@
     <string name="totalText">Total so far: €</string>
     <string name="homer">Homer</string>
     <string name="targetAchieved">Target Achieved</string>
+    <string name="menuSettings">Settings</string>
+    <string name="menuReport">Report</string>
+    <string name="reportTitle">Report</string>
+    <string name="defaultAmount">00</string>
+    <string name="defaultMethod">N/A</string>
 </resources>
