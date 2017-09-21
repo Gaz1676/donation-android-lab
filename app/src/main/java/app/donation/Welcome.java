@@ -21,13 +21,15 @@ public class Welcome extends Activity {
 
     public void loginPressed(View view) {
         startActivity(new Intent(this, Donate.class));
+
         mp = MediaPlayer.create(this, R.raw.button_music);
         mp.start();
 
     }
 
     public void signupPressed(View view) {
-        startActivity(new Intent(this, Donate.class));
+        startActivity(new Intent(this, Signup.class));
+
         mp = MediaPlayer.create(this, R.raw.button_music);
         mp.start();
 
