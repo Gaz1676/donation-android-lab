@@ -18,8 +18,14 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="app.donation.Report"
-            android:label="@string/donateTitle">
+        <activity android:name="app.donation.Report" android:label="@string/donateTitle">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
         </activity>
 
     </application>
