@@ -1,10 +1,8 @@
 package app.donation;
 
 import android.content.Intent;
-import android.media.audiofx.BassBoost;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -16,9 +14,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.media.MediaPlayer;
-import android.content.Intent;
-import android.view.MenuItem;
-import app.donation.R;
 
 public class Donate extends AppCompatActivity {
 
@@ -93,6 +88,10 @@ public class Donate extends AppCompatActivity {
             progressBar.setProgress(app.totalDonated);
             String totalDonatedStr = "$" + app.totalDonated;
             amountTotal.setText(totalDonatedStr);
+
+            // resets values to 0 and original text box state
+            amountPicker.setValue(0);
+            amountText.setText("");
         }
     }
 }
