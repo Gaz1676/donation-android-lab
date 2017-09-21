@@ -2,6 +2,7 @@ package app.donation;
 
 import android.content.Context;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -20,14 +21,16 @@ import java.util.List;
 public class Report extends AppCompatActivity {
     private ListView listView;
     private DonationApp app;
+    MediaPlayer mp;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_report);
 
+        mp = MediaPlayer.create(this, R.raw.button_music);
         app = (DonationApp) getApplication();
-
         listView = (ListView) findViewById(R.id.reportList);
         DonationAdapter adapter = new DonationAdapter(this, app.donations);
         listView.setAdapter(adapter);
@@ -38,10 +41,12 @@ public class Report extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.menuSettings:
                 Toast.makeText(this, "Settings Selected - Not Set Up Yet", Toast.LENGTH_SHORT).show();
+                mp.start();
                 break;
 
             case R.id.menuDonate:
                 startActivity(new Intent(this, Donate.class));
+                mp.start();
                 break;
         }
         return true;
@@ -49,6 +54,7 @@ public class Report extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        mp.start();
         // Inflate the menu items for use in the action bar
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_report, menu);
