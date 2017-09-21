@@ -10,24 +10,23 @@
         android:theme="@style/AppTheme"
         android:name="app.donation.DonationApp">
 
-        <activity android:name="app.donation.Donate">
+        <activity android:name="app.donation.Welcome"
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <activity android:name="app.donation.Report" android:label="@string/donateTitle">
+        <activity android:name="app.donation.Report"
+            android:label="@string/app_name">
+        </activity>
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
+        <activity android:name="app.donation.Donate"
+            android:label="@string/app_name">
         </activity>
 
     </application>
 
 </manifest>
+
