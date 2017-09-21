@@ -55,6 +55,8 @@ public class Donate extends AppCompatActivity {
                 break;
             case R.id.menuSettings:
                 Toast.makeText(this, "Settings Selected - Not Set Up Yet", Toast.LENGTH_SHORT).show();
+                mp = MediaPlayer.create(this, R.raw.button_music);
+                mp.start();
                 break;
         }
         return true;
