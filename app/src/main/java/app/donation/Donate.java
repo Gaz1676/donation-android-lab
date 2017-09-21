@@ -59,7 +59,7 @@ public class Donate extends AppCompatActivity {
                 break;
 
             case R.id.menuSettings:
-                Toast.makeText(this, "Settings Selected", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Settings Selected - Not Set Up Yet", Toast.LENGTH_SHORT).show();
                 break;
         }
         return true;
@@ -93,6 +93,7 @@ public class Donate extends AppCompatActivity {
             amountPicker.setValue(0);
             amountText.setText("");
         }
+
     }
 }
 
