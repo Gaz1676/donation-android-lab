@@ -62,6 +62,11 @@ public class Donate extends AppCompatActivity {
                 mp = MediaPlayer.create(this, R.raw.button_music);
                 mp.start();
                 break;
+            case R.id.menuLogout:
+                startActivity(new Intent(this, Welcome.class));
+                mp = MediaPlayer.create(this, R.raw.button_music);
+                mp.start();
+                break;
         }
         return true;
     }
