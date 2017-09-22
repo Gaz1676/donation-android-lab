@@ -1,5 +1,6 @@
 package app.donation;
 
+import android.content.Context;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -14,6 +15,8 @@ import android.widget.ProgressBar;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class Donate extends AppCompatActivity {
 
@@ -50,11 +53,12 @@ public class Donate extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            // intent starts new activity
             case R.id.menuReport:
                 startActivity(new Intent(this, Report.class));
                 break;
             case R.id.menuSettings:
-                Toast.makeText(this, "Settings Selected - Not Set Up Yet", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Settings Selected", Toast.LENGTH_SHORT).show();
                 mp = MediaPlayer.create(this, R.raw.button_music);
                 mp.start();
                 break;
@@ -84,12 +88,17 @@ public class Donate extends AppCompatActivity {
         if (donatedAmount > 0) {
             app.newDonation(new Donation(donatedAmount, method));
             progressBar.setProgress(app.totalDonated);
-            String totalDonatedStr = "$" + app.totalDonated;
+            String totalDonatedStr = "Donuts: " + app.totalDonated;
             amountTotal.setText(totalDonatedStr);
 
             // resets values to 0 and original text box state
             amountPicker.setValue(0);
             amountText.setText("");
         }
+    }
+
+    @Override
+    protected void attachBaseContext(Context context) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(context));
     }
 }
