@@ -1,10 +1,13 @@
 package app.donation;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
+
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class Welcome extends Activity {
 
@@ -34,4 +37,10 @@ public class Welcome extends Activity {
         mp.start();
 
     }
+
+    @Override
+    protected void attachBaseContext(Context context) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(context));
+    }
+
 }
