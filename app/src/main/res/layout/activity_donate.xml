@@ -130,7 +130,7 @@
         app:layout_constraintLeft_toRightOf="@+id/donateTitle"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.054"
-        app:srcCompat="@drawable/homer1" />
+        app:srcCompat="@drawable/homer" />
 
     <TextView
         android:id="@+id/targetAchieved"
