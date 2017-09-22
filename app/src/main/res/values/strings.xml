@@ -36,6 +36,7 @@
     <string name="menuSettings">Settings</string>
     <string name="menuReport">Report</string>
     <string name="menuDonate">Home</string>
+    <string name="menuLogout">Logout</string>
     <string name="reportTitle">Report</string>
 
     //-------------> Row layout
