@@ -18,6 +18,8 @@ import android.widget.Toast;
 
 import java.util.List;
 
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
+
 public class Report extends AppCompatActivity {
     private ListView listView;
     private DonationApp app;
@@ -32,7 +34,7 @@ public class Report extends AppCompatActivity {
         mp = MediaPlayer.create(this, R.raw.button_music);
         app = (DonationApp) getApplication();
         listView = (ListView) findViewById(R.id.reportList);
-        DonationAdapter adapter = new DonationAdapter(this, app.donations);
+        DonationAdapter adapter = new DonationAdapter(this, app.donations); // pass out to adapter
         listView.setAdapter(adapter);
     }
 
@@ -66,7 +68,7 @@ public class Report extends AppCompatActivity {
         public List<Donation> donations;
 
         public DonationAdapter(Context context, List<Donation> donations) {
-            super(context, R.layout.row_layout, donations);
+            super(context, R.layout.row_layout, donations); // donations - whats passed in
             this.context = context;
             this.donations = donations;
         }
@@ -76,7 +78,7 @@ public class Report extends AppCompatActivity {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
             View view = inflater.inflate(R.layout.row_layout, parent, false);
-            Donation donation = donations.get(position);
+            Donation donation = donations.get(position); // pull back first donation from list
             TextView amountView = view.findViewById(R.id.row_amount);
             TextView methodView = view.findViewById(R.id.row_method);
 
@@ -91,4 +93,10 @@ public class Report extends AppCompatActivity {
             return donations.size();
         }
     }
+
+    @Override
+    protected void attachBaseContext(Context context) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(context));
+    }
+
 }
