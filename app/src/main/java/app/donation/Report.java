@@ -42,7 +42,7 @@ public class Report extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menuSettings:
-                Toast.makeText(this, "Settings Selected - Not Set Up Yet", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Settings Selected", Toast.LENGTH_SHORT).show();
                 mp.start();
                 break;
 
