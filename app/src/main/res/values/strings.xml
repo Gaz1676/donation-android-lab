@@ -6,7 +6,7 @@
     <string name="payBuddy">PayBuddy</string>
     <string name="direct">Direct</string>
     <string name="amountText">Amount (in donuts)</string>
-    <string name="totalText">Total so far: €</string>
+    <string name="totalText">Total so far in Donuts: </string>
     <string name="homer">Homer</string>
     <string name="targetAchieved">Target Achieved</string>
     <string name="menuSettings">Settings</string>
