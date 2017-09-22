@@ -22,9 +22,8 @@ public class Signup extends AppCompatActivity {
 
     }
 
-    public void signupPressed (View view)
-    {
-        startActivity (new Intent(this, Donate.class));
+    public void signupPressed(View view) {
+        startActivity(new Intent(this, Donate.class));
         mp.start();
     }
 
@@ -32,5 +31,4 @@ public class Signup extends AppCompatActivity {
     protected void attachBaseContext(Context context) {
         super.attachBaseContext(CalligraphyContextWrapper.wrap(context));
     }
-
 }

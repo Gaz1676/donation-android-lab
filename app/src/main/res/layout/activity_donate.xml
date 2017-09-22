@@ -4,9 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="app.donation.Donate"
-    tools:layout_editor_absoluteX="0dp"
-    tools:layout_editor_absoluteY="81dp">
+    android:background="@drawable/background_color"
+    tools:context="app.donation.Donate">
 
     <TextView
         android:id="@+id/donateTitle"
@@ -126,11 +125,12 @@
         android:layout_marginStart="74dp"
         android:layout_marginTop="8dp"
         android:contentDescription="@string/homer"
+        android:src="@drawable/homer"
         app:layout_constraintBottom_toTopOf="@+id/amountPicker"
         app:layout_constraintLeft_toRightOf="@+id/donateTitle"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.054"
-        app:srcCompat="@drawable/homer" />
+        app:layout_constraintVertical_bias="0.054" />
+    <!--app:srcCompat="@drawable/homer" />-->
 
     <TextView
         android:id="@+id/targetAchieved"
@@ -140,10 +140,10 @@
         android:layout_marginStart="-6dp"
         android:layout_marginTop="80dp"
         android:text="@string/targetAchieved"
-        app:layout_constraintTop_toBottomOf="@+id/amountPicker"
+        app:layout_constraintHorizontal_bias="0.918"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintHorizontal_bias="0.918" />
+        app:layout_constraintTop_toBottomOf="@+id/amountPicker" />
 
 
 </android.support.constraint.ConstraintLayout>

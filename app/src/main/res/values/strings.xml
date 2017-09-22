@@ -1,4 +1,26 @@
 <resources>
+    //-------------> Home page
+    <string name="welcomeText">Welcome to my Donate Website</string>
+    <string name="welcomeLogin">Login</string>
+    <string name="welcomeSignup">Sign up</string>
+
+    //-------------> Login page
+    <string name="loginTitle">What are you waiting for!!</string>
+    <string name="logo">logo</string>
+    <string name="loginEmail">email:</string>
+    <string name="loginPassword">password:</string>
+    <string name="login">login</string>
+
+    //-------------> Signup page
+    <string name="signupTitle">Sign up for me PLEASE!!</string>
+    <string name="signupSubtitle">I\'ll give you donuts</string>
+    <string name="signupFirstName">First Name</string>
+    <string name="signupLastName">Last Name</string>
+    <string name="signupEmail">Email</string>
+    <string name="signupPassword">Password</string>
+    <string name="signupRegister">Register</string>
+
+    //-------------> Donation page
     <string name="app_name">Donation</string>
     <string name="donateTitle">Welcome Homer</string>
     <string name="donateSubtitle">Please give generously</string>
@@ -9,21 +31,15 @@
     <string name="totalText">Donuts: 0 </string>
     <string name="homer">Homer</string>
     <string name="targetAchieved">Target Achieved</string>
+
+    //------> Top right menu on Donate and Report page
     <string name="menuSettings">Settings</string>
     <string name="menuReport">Report</string>
     <string name="menuDonate">Home</string>
     <string name="reportTitle">Report</string>
+
+    //-------------> Row layout
     <string name="defaultAmount">00</string>
     <string name="defaultMethod">N/A</string>
-    <string name="welcomeText">Welcome to my Donate Website</string>
-    <string name="welcomeLogin">Login</string>
-    <string name="welcomeSignup">sign up</string>
-    <string name="signupTitle">Sign up for me PLEASE!!</string>
-    <string name="signupSubtitle">I\'ll give you donuts</string>
-    <string name="signupFirstName">First Name</string>
-    <string name="signupLastName">Last Name</string>
-    <string name="signupEmail">Email</string>
-    <string name="signupPassword">Password</string>
-    <string name="signupRegister">Register</string>
-    <string name="logo">logo</string>
+
 </resources>
