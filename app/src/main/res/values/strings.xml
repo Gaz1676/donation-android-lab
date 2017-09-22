@@ -6,7 +6,7 @@
     <string name="payBuddy">PayBuddy</string>
     <string name="direct">Direct</string>
     <string name="amountText">Amount (in donuts)</string>
-    <string name="totalText">Total so far in Donuts: </string>
+    <string name="totalText">Donuts: 0 </string>
     <string name="homer">Homer</string>
     <string name="targetAchieved">Target Achieved</string>
     <string name="menuSettings">Settings</string>
@@ -25,4 +25,5 @@
     <string name="signupEmail">Email</string>
     <string name="signupPassword">Password</string>
     <string name="signupRegister">Register</string>
+    <string name="logo">logo</string>
 </resources>
