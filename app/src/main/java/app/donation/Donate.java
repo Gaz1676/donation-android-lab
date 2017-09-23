@@ -73,8 +73,9 @@ public class Donate extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu items for use in the action bar
+        // Inflate the menu; this adds items to the action bar if it is present.
         MenuInflater inflater = getMenuInflater();
+        // Inflating the sub_menu menu will add its menu items to the empty SubMenu created
         inflater.inflate(R.menu.menu_donate, menu);
         return super.onCreateOptionsMenu(menu);
     }
