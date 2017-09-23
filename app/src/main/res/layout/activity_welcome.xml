@@ -9,6 +9,7 @@
 
     <Button
         android:id="@+id/welcomeLogin"
+        style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
@@ -23,6 +24,7 @@
 
     <Button
         android:id="@+id/welcomeSignup"
+        style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
@@ -34,15 +36,14 @@
 
     <TextView
         android:id="@+id/welcomeText"
-        android:layout_width="309dp"
-        android:layout_height="40dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
+        android:layout_width="358dp"
+        android:layout_height="44dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="122dp"
+        android:layout_marginTop="61dp"
         android:text="@string/welcomeText"
-        android:textAppearance="@android:style/TextAppearance.Medium"
-        app:layout_constraintHorizontal_bias="0.771"
+        android:textAppearance="@android:style/TextAppearance.Large"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -51,33 +52,31 @@
         android:id="@+id/homer"
         android:layout_width="244dp"
         android:layout_height="220dp"
-        android:layout_marginBottom="109dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
         android:contentDescription="@string/homer"
         android:src="@drawable/homer1"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/welcomeText"
-        app:layout_constraintVertical_bias="0.0" />
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/run"
+        app:layout_constraintVertical_bias="0.39999998" />
 
     <ImageView
         android:id="@+id/run"
         android:layout_width="222dp"
         android:layout_height="47dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="394dp"
+        android:layout_marginBottom="138dp"
         android:contentDescription="@string/logo"
         android:src="@drawable/run"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.064"
-        app:srcCompat="@drawable/run" />
+        app:srcCompat="@drawable/run"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="@+id/welcomeLogin"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="@+id/welcomeSignup"
+        app:layout_constraintHorizontal_bias="0.531" />
 
 </android.support.constraint.ConstraintLayout>

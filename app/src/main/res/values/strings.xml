@@ -14,10 +14,10 @@
     //-------------> Signup page
     <string name="signupTitle">Sign up for me PLEASE!!</string>
     <string name="signupSubtitle">I\'ll give you donuts</string>
-    <string name="signupFirstName">First Name</string>
-    <string name="signupLastName">Last Name</string>
-    <string name="signupEmail">Email</string>
-    <string name="signupPassword">Password</string>
+    <string name="signupFirstName">first Name</string>
+    <string name="signupLastName">last Name</string>
+    <string name="signupEmail">email</string>
+    <string name="signupPassword">password</string>
     <string name="signupRegister">Register</string>
 
     //-------------> Donation page
