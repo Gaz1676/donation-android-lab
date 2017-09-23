@@ -1,6 +1,6 @@
 # Android Donation Lab 2017
 
-Android Donation Lab covered in the ICT Skills, Mobile Application Development (Android) module 2017.
+Android Donation Lab covered in Mobile Application Development
 
 
 The User can donate by PayBuddy or Direct by selecting either:
