@@ -1,12 +1,15 @@
-package app.donation;
-
-import java.util.ArrayList;
-import java.util.List;
+package app.donation.main;
 
 import android.app.Application;
 import android.util.Log;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import app.donation.R;
+import app.donation.model.Donation;
+import app.donation.model.User;
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
 // any CRUD done through this class
