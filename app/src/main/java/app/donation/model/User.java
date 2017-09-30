@@ -1,4 +1,4 @@
-package app.donation;
+package app.donation.model;
 
 /**
  * Created by gary on 23/09/17.
