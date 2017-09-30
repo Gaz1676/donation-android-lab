@@ -1,4 +1,4 @@
-package app.donation;
+package app.donation.activity;
 
 import android.content.Context;
 import android.content.Intent;
@@ -16,6 +16,9 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import app.donation.R;
+import app.donation.main.DonationApp;
+import app.donation.model.Donation;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class Donate extends AppCompatActivity {
@@ -48,6 +51,7 @@ public class Donate extends AppCompatActivity {
         amountPicker.setMinValue(0);
         amountPicker.setMaxValue(1000);
         progressBar.setMax(target);
+
     }
 
     @Override

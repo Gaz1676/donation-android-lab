@@ -1,4 +1,4 @@
-package app.donation;
+package app.donation.activity;
 
 import android.content.Context;
 import android.content.Intent;
@@ -8,6 +8,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import app.donation.R;
+import app.donation.main.DonationApp;
+import app.donation.model.User;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class Signup extends AppCompatActivity {
@@ -33,7 +36,7 @@ public class Signup extends AppCompatActivity {
 
         DonationApp app = (DonationApp) getApplication();
         app.newUser(user);
-        startActivity(new Intent(this, Donate.class));
+        startActivity(new Intent(this, Login.class));
         mp.start();
     }
 

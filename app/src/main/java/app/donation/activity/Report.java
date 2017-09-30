@@ -1,4 +1,4 @@
-package app.donation;
+package app.donation.activity;
 
 import android.content.Context;
 import android.content.Intent;
@@ -18,6 +18,9 @@ import android.widget.Toast;
 
 import java.util.List;
 
+import app.donation.R;
+import app.donation.main.DonationApp;
+import app.donation.model.Donation;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class Report extends AppCompatActivity {
