@@ -1,13 +1,25 @@
-# Android Donation Lab 2017
+# &emsp;Android Donation Lab 2017
 
 Android Donation Lab covered in Mobile Application Development
 
+&emsp;&emsp;&emsp;&emsp;_An app for your donations - how simple is that!!_
+***
+The User can Signup to the app by providing their:
 
-The User can donate by PayBuddy or Direct by selecting either:
+      First name
+      Last name
+      Valid email address
+      Password
+
+After successful registration the user is directed to the Login page where they enter:
+
+      Valid email address from signup
+      Verified password
+***
+Once logged in the User can donate by PayBuddy or Direct by selecting either:
              
-- _Number selection from amountPicker_
-
-- _Typing in the totalText amount_
+      Number selection from amountPicker
+      Typing in the totalText amount
 
 ## &emsp;&emsp;&emsp;&emsp;&emsp; Screenshots of Donation Pages
 
