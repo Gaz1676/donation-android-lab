@@ -43,5 +43,6 @@
     //-------------> Row layout
     <string name="defaultAmount">00</string>
     <string name="defaultMethod">N/A</string>
+    <string name="amountSoFarLabel">Amount so far:</string>
 
 </resources>

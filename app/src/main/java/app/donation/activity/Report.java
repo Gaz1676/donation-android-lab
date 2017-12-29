@@ -3,11 +3,10 @@ package app.donation.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.media.MediaPlayer;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,11 +20,14 @@ import java.util.List;
 import app.donation.R;
 import app.donation.main.DonationApp;
 import app.donation.model.Donation;
-import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
-public class Report extends AppCompatActivity {
+public class Report extends AppCompatActivity implements Callback<List<Donation>> {
     private ListView listView;
     private DonationApp app;
+    private DonationAdapter adapter;
     MediaPlayer mp;
 
 
@@ -36,10 +38,22 @@ public class Report extends AppCompatActivity {
 
         mp = MediaPlayer.create(this, R.raw.button_music);
         app = (DonationApp) getApplication();
+
         listView = (ListView) findViewById(R.id.reportList);
-        DonationAdapter adapter = new DonationAdapter(this, app.donations); // pass out to adapter
+        adapter = new DonationAdapter (this, app.donations);
         listView.setAdapter(adapter);
+
+        Call<List<Donation>> call = app.donationService.getAllDonations();
+        call.enqueue(this);
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        mp.start();
+        getMenuInflater().inflate(R.menu.menu_report, menu);
+        return true;
+    }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -62,49 +76,48 @@ public class Report extends AppCompatActivity {
         return true;
     }
 
+
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        mp.start();
-        // Inflate the menu items for use in the action bar
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_report, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    class DonationAdapter extends ArrayAdapter<Donation> {
-        private Context context;
-        public List<Donation> donations;
-
-        public DonationAdapter(Context context, List<Donation> donations) {
-            super(context, R.layout.row_layout, donations); // donations - whats passed in
-            this.context = context;
-            this.donations = donations;
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-
-            View view = inflater.inflate(R.layout.row_layout, parent, false);
-            Donation donation = donations.get(position); // pull back first donation from list
-            TextView amountView = view.findViewById(R.id.row_amount);
-            TextView methodView = view.findViewById(R.id.row_method);
-
-            amountView.setText("" + donation.amount);
-            methodView.setText(donation.method);
-
-            return view;
-        }
-
-        @Override
-        public int getCount() {
-            return donations.size();
-        }
+    public void onResponse(Call<List<Donation>> call, Response<List<Donation>> response) {
+        adapter.donations = response.body();
+        adapter.notifyDataSetChanged();
     }
 
     @Override
-    protected void attachBaseContext(Context context) {
-        super.attachBaseContext(CalligraphyContextWrapper.wrap(context));
+    public void onFailure(Call<List<Donation>> call, Throwable t) {
+        Toast toast = Toast.makeText(this, "Error retrieving donations", Toast.LENGTH_LONG);
+        toast.show();
+    }
+}
+
+class DonationAdapter extends ArrayAdapter<Donation>
+{
+    private Context context;
+    public List<Donation> donations;
+
+    public DonationAdapter(Context context, List<Donation> donations) {
+        super(context, R.layout.row_layout, donations);
+        this.context = context;
+        this.donations = donations;
     }
 
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+        View view = inflater.inflate(R.layout.row_layout, parent, false);
+        Donation donation = donations.get(position);
+        TextView amountView = view.findViewById(R.id.row_amount);
+        TextView methodView = view.findViewById(R.id.row_method);
+
+        amountView.setText("" + donation.amount);
+        methodView.setText(donation.method);
+
+        return view;
+    }
+
+    @Override
+    public int getCount() {
+        return donations.size();
+    }
 }

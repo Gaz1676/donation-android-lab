@@ -7,51 +7,78 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-import app.donation.R;
+import app.donation.model.Candidate;
 import app.donation.model.Donation;
+import app.donation.model.Token;
 import app.donation.model.User;
-import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
-// any CRUD done through this class
-public class DonationApp extends Application {
-    public final int target = 10000;
-    public int totalDonated = 0;
-    public List<Donation> donations = new ArrayList<>(); // creates new donations arraylist
-    public List<User> users = new ArrayList<>(); // creates new users arraylist
+/**
+ * DonationApp class in restructured now to use the new authenticate route - encapsulated in the validUser and onResponse
+ */
+public class DonationApp extends Application implements Callback<Token>
+{
+    public DonationServiceOpen donationServiceOpen;
+    public DonationService     donationService;
 
-    public boolean newDonation(Donation donation) {
+    public boolean         donationServiceAvailable = false;
+    public String          service_url  = "https://donation-web-wkbiqxhlhl.now.sh/";
+
+    public final int       target       = 10000;
+    public int             totalDonated = 0;
+
+    public User             currentUser;
+    public List <Donation>  donations    = new ArrayList<Donation>();
+    public List <Candidate> candidates   = new ArrayList<Candidate>();
+
+    public boolean newDonation(Donation donation)
+    {
         boolean targetAchieved = totalDonated > target;
-        if (!targetAchieved) {
+        if (!targetAchieved)
+        {
             donations.add(donation);
             totalDonated += donation.amount;
-        } else {
+        }
+        else
+        {
             Toast toast = Toast.makeText(this, "Target Exceeded!", Toast.LENGTH_SHORT);
             toast.show();
         }
         return targetAchieved;
     }
 
-    public void newUser(User user) {
-        users.add(user);
+    @Override
+    public void onCreate()
+    {
+        super.onCreate();
+        donationServiceOpen = RetrofitServiceFactory.createService(DonationServiceOpen.class);
+        Log.v("Donation", "Donation App Started");
     }
 
-    public boolean validUser (String email, String password) {
-        for (User user : users) {
-            if (user.email.equals(email) && user.password.equals(password)) {
-                return true;
-            }
-        }
-        return false;
+    public boolean validUser (String email, String password)
+    {
+        User user = new User ("", "", email, password);
+        donationServiceOpen.authenticate(user);
+        Call<Token> call = (Call<Token>) donationServiceOpen.authenticate (user);
+        call.enqueue(this);
+        return true;
+    }
+
+    //creating the closed route proxy using the token we have just received (if we had the correct credentials)
+    @Override
+    public void onResponse(Call<Token> call, Response<Token> response) {
+        Token auth = response.body();
+        currentUser = auth.user;
+        donationService =  RetrofitServiceFactory.createService(DonationService.class, auth.token);
+        Log.v("Donation", "Authenticated " + currentUser.firstName + ' ' + currentUser.lastName);
     }
 
     @Override
-    public void onCreate() {
-        super.onCreate();
-        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder() // adds new simpson font
-                .setDefaultFontPath("fonts/simpsons.ttf")
-                .setFontAttrId(R.attr.fontPath)
-                .build()
-        );
-        Log.v("Donate", "Donation App Started");
+    public void onFailure(Call<Token> call, Throwable t) {
+        Toast toast = Toast.makeText(this, "Unable to authenticate with Donation Service", Toast.LENGTH_SHORT);
+        toast.show();
+        Log.v("Donation", "Failed to Authenticated!");
     }
 }

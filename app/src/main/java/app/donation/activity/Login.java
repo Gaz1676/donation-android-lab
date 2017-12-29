@@ -36,6 +36,9 @@ public class Login extends AppCompatActivity {
 
         if (app.validUser(email.getText().toString(), password.getText().toString())) {
             startActivity (new Intent(this, Donate.class));
+            Toast toast = Toast.makeText(this, "Welcome to MyDonation App", Toast.LENGTH_SHORT);
+            toast.show();
+
             mp = MediaPlayer.create(this, R.raw.woohoo_music);
             mp.start();
         } else {
